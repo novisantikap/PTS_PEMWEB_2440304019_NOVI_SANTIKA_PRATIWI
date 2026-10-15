@@ -1,0 +1,429 @@
+/* =========================================================
+   1. PALET WARNA TULIP & LEAF (PALETTE GAMBAR) & RESET
+   ========================================================= */
+:root {
+  /* 4 Warna Utama dari Palette Gambar */
+  --tulip-pink: #D88098;      /* Pink Medium */
+  --forest-green: #39511C;    /* Hijau Tua Forest */
+  --soft-pink: #F2C0C1;       /* Pink Soft Pastel */
+  --leaf-green: #65893C;      /* Hijau Daun Leaf */
+
+  /* Neutral & Background */
+  --bg-body: #f7f9f6;         /* Background soft cream-green */
+  --surface: #ffffff;         /* Kartu/kotak putih bersih */
+  --text: #1d2b10;            /* Teks hijau pekat */
+  --text-muted: #536443;      /* Teks abu-hijau lembut */
+  
+  --danger: #D88098;          /* Warna peringatan pink */
+  --success: #65893C;         /* Warna sukses hijau daun */
+  --radius: 0.85rem;          /* Kelengkungan sudut */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg-body);
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: 1.5rem;
+}
+
+/* =========================================================
+   2. HEADER & NAVBAR
+   ========================================================= */
+.navbar {
+  background-color: var(--surface);
+  border-bottom: 4px solid var(--tulip-pink);
+  box-shadow: 0 4px 12px rgba(57, 81, 28, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.8rem;
+}
+
+.navbar h1 {
+  font-size: 1.6rem;
+  color: var(--forest-green);
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+.navbar p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.user-info {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--soft-pink);
+  color: var(--forest-green);
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid var(--tulip-pink);
+}
+
+/* =========================================================
+   3. STATISTIK RINGKAS (CSS GRID)
+   ========================================================= */
+.stats-section {
+  margin-bottom: 2rem;
+}
+
+.stats-section h2 {
+  font-size: 1.25rem;
+  color: var(--forest-green);
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-left: 5px solid var(--tulip-pink);
+}
+
+.stat-card h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+
+/* =========================================================
+   4. CONTROL SECTION (SEARCH DEBOUNCE & FILTER)
+   ========================================================= */
+.control-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+  border: 1px solid #e2ebe0;
+}
+
+.search-box, .filter-box {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.search-box label, .filter-box label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--forest-green);
+}
+
+.search-box input, .filter-box select {
+  padding: 0.65rem;
+  border: 1.5px solid #c9d8c3;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  outline: none;
+  background-color: #fafcf9;
+}
+
+.search-box input:focus, .filter-box select:focus {
+  border-color: var(--tulip-pink);
+  box-shadow: 0 0 0 3px rgba(216, 128, 152, 0.25);
+}
+
+/* =========================================================
+   5. LOADING, ERROR, & TOMBOL INTERAKTIF
+   ========================================================= */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  font-weight: 600;
+  color: var(--leaf-green);
+  background: #f0f5ed;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.error-box {
+  background-color: var(--soft-pink);
+  color: var(--forest-green);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--tulip-pink);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.btn-filter, .btn-theme {
+  background-color: var(--surface);
+  border: 2px solid var(--tulip-pink);
+  color: var(--forest-green);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover, .btn-theme:hover {
+  background-color: var(--tulip-pink);
+  color: white;
+}
+
+/* =========================================================
+   6. KATALOG PRODUK (CSS GRID)
+   ========================================================= */
+.products-section {
+  margin-bottom: 2.5rem;
+}
+
+.products-section h2 {
+  font-size: 1.25rem;
+  color: var(--forest-green);
+  margin-bottom: 1rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2ebe0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(57, 81, 28, 0.15);
+  border-color: var(--tulip-pink);
+}
+
+.product-img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  background-color: #f2f7f0;
+  padding: 1rem;
+}
+
+.product-info {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+
+.product-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.product-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--forest-green);
+  background: #e5efe1;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  width: fit-content;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--leaf-green);
+  margin-top: auto;
+}
+
+/* Badge Stok */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+.badge-success { background-color: #e5efe1; color: var(--forest-green); }
+.badge-warning { background-color: var(--soft-pink); color: var(--forest-green); }
+
+/* =========================================================
+   7. FORM VALIDASI 2 INPUT BERKAITAN
+   ========================================================= */
+.form-section {
+  background: var(--surface);
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+  border-top: 4px solid var(--leaf-green);
+}
+
+.form-section h2 {
+  font-size: 1.25rem;
+  color: var(--forest-green);
+  margin-bottom: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1 1 200px;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--forest-green);
+}
+
+.form-group input {
+  padding: 0.65rem;
+  border: 1.5px solid #c9d8c3;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background-color: #fafcf9;
+}
+
+.form-group input:focus {
+  border-color: var(--leaf-green);
+  box-shadow: 0 0 0 3px rgba(101, 137, 60, 0.2);
+}
+
+.error-msg {
+  color: var(--tulip-pink);
+  font-size: 0.8rem;
+  min-height: 1.2rem;
+  font-weight: 600;
+}
+
+.btn-submit {
+  background-color: var(--tulip-pink);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 10px rgba(216, 128, 152, 0.3);
+}
+
+.btn-submit:hover {
+  background-color: #c46d85;
+  transform: translateY(-1px);
+}
+
+.success-box {
+  margin-top: 1rem;
+  background-color: #e5efe1;
+  color: var(--forest-green);
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--leaf-green);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =========================================================
+   8. DARK MODE TULIP & LEAF 🌙
+   ========================================================= */
+[data-theme="dark"] {
+  --bg-body: #16200f;
+  --surface: #1e2c15;
+  --text: #f0f5ed;
+  --text-muted: #a1b595;
+  --forest-green: #c4dcba;
+  --soft-pink: #3f272f;
+}
+
+[data-theme="dark"] .navbar {
+  border-bottom-color: var(--tulip-pink);
+}
+
+[data-theme="dark"] .product-card, 
+[data-theme="dark"] .control-section,
+[data-theme="dark"] .form-section,
+[data-theme="dark"] .stat-card {
+  border-color: #2c401f;
+}
+
+[data-theme="dark"] .search-box input,
+[data-theme="dark"] .filter-box select,
+[data-theme="dark"] .form-group input {
+  background-color: #162210;
+  border-color: #385028;
+  color: #f0f5ed;
+}
+
+/* =========================================================
+   9. FOOTER & ACCESSIBILITY FOCUS
+   ========================================================= */
+footer {
+  background: var(--forest-green);
+  color: #f0f5ed;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--tulip-pink);
+  outline-offset: 2px;
+}

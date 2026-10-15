@@ -150,6 +150,7 @@ function debounce(func, delay = 300) {
 }
 
 // Handler Pencarian dengan Debounce
+// Fitur Challenge C=2 Debounce Search & Validasi Ganda Form
 const handleSearch = debounce((e) => {
   const keyword = e.target.value.toLowerCase().trim();
   const selectedCategory = categoryFilter.value;
@@ -162,7 +163,7 @@ const handleSearch = debounce((e) => {
   if (selectedCategory !== 'all') {
     filtered = filtered.filter(item => item.category.toLowerCase().includes(selectedCategory.toLowerCase()));
   }
-// Fitur perhitungan statistik harga dan total produk
+
   renderProducts(filtered);
   updateStatistics(filtered);
 }, 300);

@@ -1,5 +1,3 @@
-// Fitur Fetch API dari DummyJSON
-
 /* =========================================================
    PROYEK PTS PEMROGRAMAN WEB (NIM: 2440304019)
    NAMA MAHASISWA : NOVI SANTIKA PRATIWI
@@ -164,7 +162,7 @@ const handleSearch = debounce((e) => {
   if (selectedCategory !== 'all') {
     filtered = filtered.filter(item => item.category.toLowerCase().includes(selectedCategory.toLowerCase()));
   }
-
+// Fitur perhitungan statistik harga dan total produk
   renderProducts(filtered);
   updateStatistics(filtered);
 }, 300);

@@ -1,3 +1,5 @@
+// Fitur Fetch API dari DummyJSON
+
 /* =========================================================
    PROYEK PTS PEMROGRAMAN WEB (NIM: 2440304019)
    NAMA MAHASISWA : NOVI SANTIKA PRATIWI

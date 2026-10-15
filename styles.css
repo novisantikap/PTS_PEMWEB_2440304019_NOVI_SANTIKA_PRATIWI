@@ -39,7 +39,7 @@ body {
 }
 
 /* =========================================================
-   2. HEADER & NAVBAR
+   2. HEADER & NAVBAR (SEJAJAR DENGAN LOGO)
    ========================================================= */
 .navbar {
   background-color: var(--surface);
@@ -50,7 +50,7 @@ body {
   z-index: 100;
 }
 
-.navbar .container {
+.navbar-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -59,7 +59,13 @@ body {
   padding-block: 0.8rem;
 }
 
-.navbar h1 {
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-title h1 {
   font-size: 1.6rem;
   color: var(--forest-green);
   letter-spacing: 0.5px;
@@ -381,38 +387,7 @@ body {
 }
 
 /* =========================================================
-   8. DARK MODE TULIP & LEAF 🌙
-   ========================================================= */
-[data-theme="dark"] {
-  --bg-body: #16200f;
-  --surface: #1e2c15;
-  --text: #f0f5ed;
-  --text-muted: #a1b595;
-  --forest-green: #c4dcba;
-  --soft-pink: #3f272f;
-}
-
-[data-theme="dark"] .navbar {
-  border-bottom-color: var(--tulip-pink);
-}
-
-[data-theme="dark"] .product-card, 
-[data-theme="dark"] .control-section,
-[data-theme="dark"] .form-section,
-[data-theme="dark"] .stat-card {
-  border-color: #2c401f;
-}
-
-[data-theme="dark"] .search-box input,
-[data-theme="dark"] .filter-box select,
-[data-theme="dark"] .form-group input {
-  background-color: #162210;
-  border-color: #385028;
-  color: #f0f5ed;
-}
-
-/* =========================================================
-   9. FOOTER & ACCESSIBILITY FOCUS
+   8. FOOTER & ACCESSIBILITY FOCUS
    ========================================================= */
 footer {
   background: var(--forest-green);

@@ -150,7 +150,6 @@ function debounce(func, delay = 300) {
 }
 
 // Handler Pencarian dengan Debounce
-// Fitur Challenge C=2 Debounce Search & Validasi Ganda Form
 const handleSearch = debounce((e) => {
   const keyword = e.target.value.toLowerCase().trim();
   const selectedCategory = categoryFilter.value;

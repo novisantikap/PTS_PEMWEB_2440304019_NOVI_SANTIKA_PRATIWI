@@ -25,3 +25,5 @@ TARA MART adalah aplikasi dashboard inventaris dan stok produk minimarket berbas
 1. Buka aplikasi **Laragon** dan pastikan modul **Apache** dalam kondisi *Start*.
 2. Simpan folder proyek pada direktori `C:\laragon\www\PTS_PEMWEB_2440304019_NOVI_SANTIKA_PRATIWI\`.
 3. Buka peramban dan akses: `http://localhost/PTS_PEMWEB_2440304019_NOVI_SANTIKA_PRATIWI/`.
+
+* Status Proyek: Selesai & Siap Dites (Versi v0.1-PTS)
